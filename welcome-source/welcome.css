@@ -1,0 +1,712 @@
+/* =========================================================
+   ลงทุนไดอารี่ · AI 101 Welcome Pack
+   2-page A4 PDF, hand-drawn diary aesthetic
+   ========================================================= */
+
+/* ----- Local webfonts (so PDF renders without network) ----- */
+/* Sarabun: Thai + Latin */
+@font-face { font-family:'Sarabun'; font-weight:300; font-style:normal; font-display:swap;
+  src: url('assets/fonts/sarabun-thai-300-normal.woff2') format('woff2'),
+       url('assets/fonts/sarabun-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family:'Sarabun'; font-weight:400; font-style:normal; font-display:swap;
+  src: url('assets/fonts/sarabun-thai-400-normal.woff2') format('woff2'),
+       url('assets/fonts/sarabun-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family:'Sarabun'; font-weight:500; font-style:normal; font-display:swap;
+  src: url('assets/fonts/sarabun-thai-500-normal.woff2') format('woff2'),
+       url('assets/fonts/sarabun-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family:'Sarabun'; font-weight:600; font-style:normal; font-display:swap;
+  src: url('assets/fonts/sarabun-thai-600-normal.woff2') format('woff2'),
+       url('assets/fonts/sarabun-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family:'Sarabun'; font-weight:700; font-style:normal; font-display:swap;
+  src: url('assets/fonts/sarabun-thai-700-normal.woff2') format('woff2'),
+       url('assets/fonts/sarabun-latin-700-normal.woff2') format('woff2'); }
+
+/* Mitr: Thai + Latin */
+@font-face { font-family:'Mitr'; font-weight:300; font-style:normal; font-display:swap;
+  src: url('assets/fonts/mitr-thai-300-normal.woff2') format('woff2'),
+       url('assets/fonts/mitr-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family:'Mitr'; font-weight:400; font-style:normal; font-display:swap;
+  src: url('assets/fonts/mitr-thai-400-normal.woff2') format('woff2'),
+       url('assets/fonts/mitr-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family:'Mitr'; font-weight:500; font-style:normal; font-display:swap;
+  src: url('assets/fonts/mitr-thai-500-normal.woff2') format('woff2'),
+       url('assets/fonts/mitr-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family:'Mitr'; font-weight:600; font-style:normal; font-display:swap;
+  src: url('assets/fonts/mitr-thai-600-normal.woff2') format('woff2'),
+       url('assets/fonts/mitr-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family:'Mitr'; font-weight:700; font-style:normal; font-display:swap;
+  src: url('assets/fonts/mitr-thai-700-normal.woff2') format('woff2'),
+       url('assets/fonts/mitr-latin-700-normal.woff2') format('woff2'); }
+
+/* Caveat: Latin only (script accents) */
+@font-face { font-family:'Caveat'; font-weight:400; font-style:normal; font-display:swap;
+  src: url('assets/fonts/caveat-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family:'Caveat'; font-weight:500; font-style:normal; font-display:swap;
+  src: url('assets/fonts/caveat-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family:'Caveat'; font-weight:600; font-style:normal; font-display:swap;
+  src: url('assets/fonts/caveat-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family:'Caveat'; font-weight:700; font-style:normal; font-display:swap;
+  src: url('assets/fonts/caveat-latin-700-normal.woff2') format('woff2'); }
+
+/* Patrick Hand */
+@font-face { font-family:'Patrick Hand'; font-weight:400; font-style:normal; font-display:swap;
+  src: url('assets/fonts/patrick-hand-latin-400-normal.woff2') format('woff2'); }
+
+/* JetBrains Mono */
+@font-face { font-family:'JetBrains Mono'; font-weight:400; font-style:normal; font-display:swap;
+  src: url('assets/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family:'JetBrains Mono'; font-weight:500; font-style:normal; font-display:swap;
+  src: url('assets/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family:'JetBrains Mono'; font-weight:600; font-style:normal; font-display:swap;
+  src: url('assets/fonts/jetbrains-mono-latin-600-normal.woff2') format('woff2'); }
+
+:root {
+  /* Brand primitives, locked palette */
+  --cream-50:  #faf8ee;
+  --cream-100: #f0f0e0;
+  --cream-200: #e6e4d2;
+  --cream-300: #d8d4bc;
+  --cream-400: #d0d0b8;
+
+  --sage-100: #cfd5c0;
+  --sage-200: #b8c0a8;
+  --sage-300: #a0a890;
+  --sage-400: #889878;
+  --sage-500: #6e7e60;
+  --sage-600: #556547;
+
+  --forest-700: #485840;
+  --forest-800: #384830;
+  --forest-900: #304828;
+  --forest-950: #1f2e1a;
+
+  --accent-tomato: #c25d4f;
+  --accent-honey:  #d6a64a;
+  --accent-sky:    #6f8d9c;
+
+  --fg-1: var(--forest-900);
+  --fg-2: var(--forest-700);
+  --fg-3: var(--sage-500);
+
+  --line-1: var(--forest-900);
+  --line-weight: 2px;
+
+  --font-script:  'Caveat', 'Sarabun', 'Patrick Hand', cursive;
+  --font-hand:    'Patrick Hand', 'Caveat', 'Sarabun', cursive;
+  --font-display: 'Mitr', 'Sarabun', system-ui, sans-serif;
+  --font-body:    'Sarabun', 'Mitr', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Sarabun', ui-monospace, Menlo, monospace;
+
+  --shadow-card:  3px 4px 0 var(--forest-900);
+  --shadow-stack: 4px 6px 0 var(--sage-500), 8px 12px 0 var(--forest-900);
+}
+
+/* ----- Page setup ----- */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream-50);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: 11pt;
+  line-height: 1.55;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  padding: 14mm 14mm;
+  background: var(--cream-50);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+}
+
+.page:last-child {
+  page-break-after: auto;
+}
+
+/* Subtle paper grain, lined-paper feel without being literal */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 26px,
+      rgba(48, 72, 40, 0.035) 26px,
+      rgba(48, 72, 40, 0.035) 27px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  left: 18mm;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(194, 93, 79, 0.18);
+  z-index: 0;
+}
+
+.page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   PAGE 1, QUICK START
+   ============================================================ */
+
+.cover {
+  display: grid;
+  grid-template-columns: 38mm 1fr;
+  gap: 8mm;
+  align-items: center;
+  padding-bottom: 6mm;
+  border-bottom: 1.5px dashed var(--sage-400);
+}
+
+.cover .logo {
+  width: 38mm;
+  height: 38mm;
+  display: block;
+}
+
+.cover .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cover .wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.cover .brand-thai {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32pt;
+  line-height: 1;
+  color: var(--forest-900);
+  letter-spacing: -0.5px;
+}
+
+.cover .brand-en {
+  font-family: var(--font-script);
+  font-weight: 600;
+  font-size: 22pt;
+  line-height: 1;
+  color: var(--sage-500);
+  margin-top: -2mm;
+}
+
+.cover .course-title {
+  font-family: var(--font-hand);
+  font-size: 13pt;
+  color: var(--forest-800);
+  background: var(--cream-200);
+  padding: 2mm 4mm;
+  border: 1.5px solid var(--forest-900);
+  border-radius: 22px 26px 18px 24px;
+  align-self: flex-start;
+  margin-top: 2mm;
+  box-shadow: 2px 3px 0 var(--sage-400);
+}
+
+.welcome-line {
+  margin-top: 7mm;
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+}
+
+.welcome-line .ribbon {
+  font-family: var(--font-script);
+  font-size: 28pt;
+  color: var(--accent-tomato);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.welcome-line .what {
+  font-family: var(--font-display);
+  font-size: 13pt;
+  color: var(--forest-800);
+  font-weight: 500;
+}
+
+.what-paragraph {
+  margin-top: 4mm;
+  font-family: var(--font-body);
+  font-size: 11pt;
+  color: var(--forest-800);
+  line-height: 1.7;
+  max-width: 170mm;
+}
+
+.what-paragraph code {
+  font-family: var(--font-mono);
+  background: var(--cream-200);
+  border: 1px solid var(--sage-300);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 9.5pt;
+  color: var(--forest-900);
+}
+
+/* ----- Quick Start: 3 numbered steps ----- */
+
+.section-label {
+  margin-top: 7mm;
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+
+.section-label .underline-stroke {
+  max-width: 70mm;
+}
+
+.section-label .marker {
+  font-family: var(--font-script);
+  font-size: 26pt;
+  color: var(--accent-honey);
+  line-height: 1;
+}
+
+.section-label .label-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16pt;
+  color: var(--forest-900);
+}
+
+.section-label .underline-stroke {
+  flex: 1;
+  height: 4px;
+  margin-left: 2mm;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--sage-400) 0 6px,
+    transparent 6px 10px
+  );
+}
+
+.steps {
+  margin-top: 7mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6mm;
+}
+
+.step {
+  position: relative;
+  background: var(--cream-50);
+  border: 2px solid var(--forest-900);
+  border-radius: 18px 22px 16px 20px;
+  padding: 7mm 5mm 6mm;
+  box-shadow: 3px 4px 0 var(--sage-400);
+  min-height: 78mm;
+}
+
+.step .num {
+  position: absolute;
+  top: -7mm;
+  left: 5mm;
+  width: 14mm;
+  height: 14mm;
+  background: var(--sage-400);
+  color: var(--cream-50);
+  border: 2px solid var(--forest-900);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-script);
+  font-size: 22pt;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 var(--forest-900);
+}
+
+.step:nth-child(2) .num { background: var(--accent-honey); }
+.step:nth-child(3) .num { background: var(--accent-tomato); color: var(--cream-50); }
+
+.step .step-headline {
+  margin-top: 3mm;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5pt;
+  color: var(--forest-900);
+  line-height: 1.25;
+}
+
+.step .step-detail {
+  margin-top: 3mm;
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  color: var(--forest-700);
+  line-height: 1.55;
+}
+
+.step code {
+  font-family: var(--font-mono);
+  background: var(--cream-200);
+  border: 1px solid var(--sage-300);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 9pt;
+  color: var(--forest-900);
+}
+
+.step .platform-list {
+  margin-top: 3mm;
+  font-family: var(--font-body);
+  font-size: 9pt;
+  color: var(--forest-700);
+  line-height: 1.6;
+  padding-left: 0;
+  list-style: none;
+}
+
+.step .platform-list li {
+  padding-left: 6mm;
+  position: relative;
+  margin-bottom: 1.5mm;
+}
+
+.step .platform-list li::before {
+  content: "·";
+  position: absolute;
+  left: 2mm;
+  top: -1mm;
+  font-family: var(--font-script);
+  font-size: 18pt;
+  color: var(--sage-500);
+  line-height: 1;
+}
+
+/* ----- Bottom strip ----- */
+
+.bottom-strip {
+  margin-top: 10mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+}
+
+.strip-card {
+  background: var(--cream-100);
+  border: 1.5px solid var(--forest-900);
+  border-radius: 16px 20px 14px 18px;
+  padding: 4mm 5mm;
+  box-shadow: 2px 3px 0 var(--sage-400);
+}
+
+.strip-card .strip-title {
+  font-family: var(--font-script);
+  font-size: 16pt;
+  color: var(--accent-tomato);
+  line-height: 1;
+  margin-bottom: 1mm;
+}
+
+.strip-card.honey .strip-title { color: var(--accent-honey); }
+.strip-card.sky .strip-title { color: var(--accent-sky); }
+
+.strip-card .strip-body {
+  font-family: var(--font-body);
+  font-size: 10pt;
+  color: var(--forest-800);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   PAGE 2, WHAT YOU'LL BUILD + BRAND
+   ============================================================ */
+
+.page-2-title {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 1.5px dashed var(--sage-400);
+}
+
+.page-2-title .ribbon {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22pt;
+  color: var(--accent-tomato);
+  line-height: 1;
+}
+
+.page-2-title .thai-headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18pt;
+  color: var(--forest-900);
+  line-height: 1.15;
+}
+
+.page-2-title .small-arrow {
+  font-family: var(--font-script);
+  font-size: 18pt;
+  color: var(--sage-500);
+  line-height: 1;
+  margin-left: auto;
+}
+
+/* ----- /brief evolution ----- */
+
+.evolution {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3.5mm;
+  margin-bottom: 5mm;
+  position: relative;
+}
+
+.lesson-card {
+  position: relative;
+  border: 2px solid var(--forest-900);
+  border-radius: 14px 18px 12px 16px;
+  padding: 4mm 3.5mm 3.5mm;
+  background: var(--cream-50);
+  min-height: 64mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-card .l-tag {
+  display: inline-block;
+  font-family: var(--font-script);
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--cream-50);
+  background: var(--sage-400);
+  border: 1.5px solid var(--forest-900);
+  padding: 0 3mm;
+  border-radius: 999px;
+  align-self: flex-start;
+  line-height: 1.2;
+  margin-bottom: 2mm;
+}
+
+.lesson-card.honey .l-tag { background: var(--accent-honey); color: var(--forest-900); }
+.lesson-card.sky .l-tag { background: var(--accent-sky); }
+.lesson-card.tomato .l-tag { background: var(--accent-tomato); }
+.lesson-card.deep-sage .l-tag { background: var(--sage-600); }
+
+/* Wash overlay, flat watercolor wash, used per accent */
+.lesson-card .wash {
+  position: absolute;
+  top: 14mm;
+  left: 3mm;
+  right: 3mm;
+  bottom: 3mm;
+  background: var(--sage-100);
+  opacity: 0.55;
+  border-radius: 12px 14px 10px 12px;
+  z-index: 0;
+}
+
+.lesson-card.honey .wash { background: #f0e0b8; }
+.lesson-card.sky .wash { background: #c5d4dc; }
+.lesson-card.tomato .wash { background: #e8c7c0; }
+.lesson-card.deep-sage .wash { background: var(--sage-200); }
+
+.lesson-card .body {
+  position: relative;
+  z-index: 1;
+}
+
+.lesson-card .build-line {
+  font-family: var(--font-mono);
+  font-size: 8.5pt;
+  color: var(--forest-900);
+  background: var(--cream-50);
+  border: 1px solid var(--forest-900);
+  padding: 1.5mm 2mm;
+  border-radius: 3px;
+  margin-bottom: 2.5mm;
+  word-break: break-word;
+}
+
+.lesson-card .summary {
+  font-family: var(--font-body);
+  font-size: 8.8pt;
+  line-height: 1.5;
+  color: var(--forest-800);
+}
+
+.lesson-card .summary strong {
+  font-weight: 600;
+  color: var(--forest-900);
+}
+
+.lesson-card .add-on {
+  margin-top: auto;
+  padding-top: 2.5mm;
+  font-family: var(--font-script);
+  font-size: 12pt;
+  color: var(--accent-tomato);
+  line-height: 1;
+}
+
+/* ----- 3 things to build next ----- */
+
+.next-block {
+  margin-top: 2mm;
+  margin-bottom: 5mm;
+}
+
+.next-block h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13pt;
+  color: var(--forest-900);
+  margin: 0 0 3mm;
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+
+.next-block h3::before {
+  content: "+";
+  font-family: var(--font-script);
+  font-size: 24pt;
+  color: var(--accent-honey);
+  line-height: 0.9;
+}
+
+.next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4mm;
+}
+
+.next-card {
+  border: 1.5px solid var(--forest-900);
+  border-radius: 12px 16px 10px 14px;
+  padding: 3.5mm 4mm;
+  background: var(--cream-50);
+  box-shadow: 2px 3px 0 var(--sage-300);
+}
+
+.next-card .name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--forest-900);
+  margin-bottom: 1.5mm;
+}
+
+.next-card .desc {
+  font-family: var(--font-body);
+  font-size: 9pt;
+  color: var(--forest-700);
+  line-height: 1.5;
+}
+
+/* ----- Tagline block ----- */
+
+.tagline-block {
+  margin-top: 2mm;
+  padding: 6mm 8mm;
+  background: var(--cream-100);
+  border: 2px solid var(--forest-900);
+  border-radius: 22px 28px 20px 26px;
+  position: relative;
+  box-shadow: 4px 5px 0 var(--sage-400);
+}
+
+.tagline-block .quote-mark {
+  position: absolute;
+  top: -6mm;
+  left: 8mm;
+  font-family: 'Caveat', Georgia, serif;
+  font-size: 56pt;
+  font-weight: 700;
+  color: var(--accent-tomato);
+  line-height: 1;
+  background: transparent;
+  padding: 0;
+}
+
+.tagline-block .tagline-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17pt;
+  color: var(--forest-900);
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ----- Footer / contact strip ----- */
+
+.footer {
+  position: absolute;
+  left: 14mm;
+  right: 14mm;
+  bottom: 14mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4mm;
+  border-top: 1.5px dashed var(--sage-400);
+}
+
+.footer .links {
+  font-family: var(--font-mono);
+  font-size: 9pt;
+  color: var(--forest-800);
+  line-height: 1.6;
+}
+
+.footer .links .label {
+  font-family: var(--font-hand);
+  font-size: 11pt;
+  color: var(--sage-500);
+  margin-right: 2mm;
+}
+
+.footer .signature {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13pt;
+  color: var(--forest-900);
+  text-align: right;
+  line-height: 1.3;
+}
+
+.footer .signature .by {
+  font-family: var(--font-hand);
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--sage-500);
+  display: block;
+  line-height: 1;
+  margin-bottom: 1.5mm;
+}
