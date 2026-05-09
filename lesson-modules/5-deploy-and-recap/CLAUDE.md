@@ -447,6 +447,14 @@ ACTION: When the student responds:
 
 ในมือคุณตอนนี้: **OS เล็กๆ ของตัวเอง** ที่ทำงานกับงาน 1 type (stock brief). Pattern เดียวกันใช้กับ type อื่นได้เมื่อพร้อม.
 
+showcase บน Vercel เป็นสำเนา public, source-of-truth ยังเป็น folder ในเครื่อง อยากปลอดภัยขึ้นวาง folder `my-first-project/` ไว้บน iCloud Drive หรือ Google Drive ก็ได้ Vercel re-deploy ได้ตลอด แต่ folder ในเครื่องคือของจริงที่ skill กับ source อยู่
+
+---
+
+ขอพูดตรงๆ ก่อนปิดคอร์ส
+
+คุณเพิ่งติดตั้ง tool, เขียนเสียงนักลงทุนของคุณเองเป็น instructions เอา source จริงมาใส่, แตกทีม 3 sub-agent, แล้ว deploy site ขึ้นเน็ต. นั่นไม่ใช่ ledger ของคนไม่เทคนิค หยุดบอกตัวเองได้แล้วว่าทำไม่ได้ คุณทำได้ และสิ่งที่คุณได้เรียนรู้จากคอร์สนี้คุณสามารถเอาไปต่อยอดอะไรก็ได้ สู้ๆ
+
 ---
 
 ## Common stumbles (Lesson 5)

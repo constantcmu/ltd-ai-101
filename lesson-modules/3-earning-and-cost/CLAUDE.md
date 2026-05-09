@@ -22,9 +22,9 @@ Lesson 2 จบที่ `/brief AAPL` v1 ออก 6 sections + เสียง
 
 1. **Honest case** = Claude บอกตรงๆ ว่า "ไม่แน่ใจ quarter ล่าสุด"
 2. **Bad case** = Claude แต่งตัวเลขเฉพาะเจาะจง (revenue + segment + guidance) จากความน่าจะเป็น ไม่ใช่ข้อเท็จจริง
-3. **AI-with-websearch case** = Claude สมัยใหม่บางตัวเรียก websearch เองได้ ออกไปหา online แล้วตอบ — แต่เราไม่ได้คุมว่ามันจะหยิบมาจากเว็บไหน บางทีได้ blog random หรือ tweet ของคนที่เราไม่รู้จัก เลยเลือกวิธีให้เรา feed source ที่เราเลือกเองดีกว่า แน่ใจ source
+3. **AI-with-websearch case** = Claude สมัยใหม่บางตัวเรียก websearch เองได้ ออกไปหา online แล้วตอบ แต่เราไม่ได้คุมว่ามันจะหยิบมาจากเว็บไหน บางทีได้ blog random หรือ tweet ของคนที่เราไม่รู้จัก เลยเลือกวิธีให้เรา feed source ที่เราเลือกเองดีกว่า แน่ใจ source
 
-Lesson 3 แก้ structurally โดยให้ skill อ่าน **earnings call transcript** ที่คุณ paste ไว้ใน folder ของโปรเจค — เอกสารตรงจากบริษัท ไม่ใช่ข่าวที่คนอื่น interpret skill อ่าน transcript ก่อนเขียน Latest earnings section ทุกครั้ง
+Lesson 3 แก้ structurally โดยให้ skill อ่าน **earnings call transcript** ที่คุณ paste ไว้ใน folder ของโปรเจค เอกสารตรงจากบริษัท ไม่ใช่ข่าวที่คนอื่น interpret skill อ่าน transcript ก่อนเขียน Latest earnings section ทุกครั้ง
 
 นอกจากนั้นเราทำอีก 2 อย่าง:
 
@@ -37,7 +37,7 @@ Lesson 3 แก้ structurally โดยให้ skill อ่าน **earnings
 
 ACTION: Greet the student briefly in Thai. Confirm starting Lesson 3 (~15 นาที). Then ask:
 
-"ก่อนเริ่ม Lesson 3 ขอ verify ของจาก Lesson 2 ก่อนนะครับ. ในหน้าต่าง 2 (folder `my-first-project`) ลอง paste:
+"ก่อนเริ่ม Lesson 3 ขอ verify ของจาก Lesson 2 ก่อนนะครับ ในหน้าต่าง 2 (folder `my-first-project`) ลอง paste:
 
 ```
 อ่านไฟล์ .claude/skills/company-brief/SKILL.md แล้ว show บรรทัดแรก กับ บรรทัดที่มีคำว่า 'description'
@@ -49,7 +49,7 @@ ACTION: Greet the student briefly in Thai. Confirm starting Lesson 3 (~15 นา
 อ่านไฟล์ CLAUDE.md ที่ root ของ project แล้ว show หัวข้อ section 'How I invest' กลับมา (ถ้ามี)
 ```
 
-แล้วบอกผมว่า Claude หน้าต่าง 2 อ่านได้ทั้ง 2 ไฟล์ไหม + section 'How I invest' ยังอยู่ในไฟล์ CLAUDE.md ไหม."
+แล้วบอกผมว่า Claude หน้าต่าง 2 อ่านได้ทั้ง 2 ไฟล์ไหม + section 'How I invest' ยังอยู่ในไฟล์ CLAUDE.md ไหม"
 
 ---
 
@@ -68,11 +68,11 @@ USER: [Waits for student to confirm L2 artifacts + window 2 still open]
 
 ACTION: When the student responds:
 
-1. ถ้าทั้ง 2 ไฟล์อ่านได้ + section "How I invest" ยังอยู่ + window 2 ยังเปิดที่ `my-first-project`, say "ดีครับ Lesson 2 ของแน่น ไปต่อ." Move to Step 1.
-2. ถ้าไฟล์ SKILL.md หาย หรือ Claude หน้าต่าง 2 อ่านไม่ได้, ตอบ: "ขาด skill กลับไปเก็บที่ Lesson 2 Step 2 ก่อนนะครับ. พิมพ์ `Start Lesson 2` ในหน้าต่างนี้ถ้าอยากเริ่มใหม่." Wait for fix.
-3. ถ้า section "How I invest" หาย (CLAUDE.md ถูก overwrite ระหว่างนี้), ตอบ: "section voice หาย Lesson 3 จะอ่อน เพราะ skill เรียก voice นั้น. กลับไป Lesson 2 Step 3 ก่อน." Wait for fix.
+1. ถ้าทั้ง 2 ไฟล์อ่านได้ + section "How I invest" ยังอยู่ + window 2 ยังเปิดที่ `my-first-project`, say "ดีครับ Lesson 2 ของแน่น ไปต่อ" Move to Step 1.
+2. ถ้าไฟล์ SKILL.md หาย หรือ Claude หน้าต่าง 2 อ่านไม่ได้, ตอบ: "ขาด skill กลับไปเก็บที่ Lesson 2 Step 2 ก่อนนะครับ พิมพ์ `Start Lesson 2` ในหน้าต่างนี้ถ้าอยากเริ่มใหม่" Wait for fix.
+3. ถ้า section "How I invest" หาย (CLAUDE.md ถูก overwrite ระหว่างนี้), ตอบ: "section voice หาย Lesson 3 จะอ่อน เพราะ skill เรียก voice นั้น กลับไป Lesson 2 Step 3 ก่อน" Wait for fix.
 4. ถ้า student เปลี่ยนชื่อ folder (ไม่ใช่ `my-first-project`), จด name ที่ใช้ และ substitute ทุกครั้งที่ผม reference `my-first-project`.
-5. ถ้า window 2 ปิดไป, ขอให้เปิด Claude Code ที่ folder project ก่อนต่อ.
+5. ถ้า window 2 ปิดไป, ขอให้เปิด Claude Code ที่ folder project ก่อนต่อ
 
 ---
 
@@ -86,7 +86,7 @@ ACTION: When the student responds:
 
 - **Honest analyst:** "ผมไม่รู้ ข่าวล่าสุดของผมหยุดที่ [วันที่]"
 - **Bad analyst:** เดาจากแบบที่ "น่าจะเกิด" แล้วพูดเหมือนจริง ใส่ชื่อคน วันที่ ตัวเลข
-- **AI ที่ใช้ websearch:** Claude สมัยใหม่บางตัวเรียก websearch เองได้ ออกไปหา online แล้วตอบ — แต่เราไม่ได้คุมว่ามันจะหยิบมาจากเว็บไหน บางทีได้ blog random หรือ tweet ของคนที่เราไม่รู้จัก เลยเลือกวิธีให้เรา feed source ที่เราเลือกเองดีกว่า แน่ใจ source
+- **AI ที่ใช้ websearch:** Claude สมัยใหม่บางตัวเรียก websearch เองได้ ออกไปหา online แล้วตอบ แต่เราไม่ได้คุมว่ามันจะหยิบมาจากเว็บไหน บางทีได้ blog random หรือ tweet ของคนที่เราไม่รู้จัก เลยเลือกวิธีให้เรา feed source ที่เราเลือกเองดีกว่า แน่ใจ source
 
 Claude บางครั้งทำตัวเหมือน analyst ที่ดี บางครั้งเหมือนคนที่ไม่ดี เราสามารถใส่ rule ใน SKILL.md ว่า "ห้ามแต่ง" แต่ rule ใน SOP ไม่ใช่ structural fix มันแค่ instruction fix structural คือ **ให้ Claude อ่านเอกสารจริงก่อนเขียน section นั้น**
 
@@ -139,7 +139,7 @@ sources/
 STOP: บอกผม:
 
 1. Claude ในหน้าต่าง 2 ตอบยังไง? (สร้างเลยหรือถามขอ approve)
-2. ถาม Claude หน้าต่าง 2: "list ไฟล์ทั้งหมดใน folder sources/" Claude ต้อง show ว่ามี `sources/README.md` อย่างน้อย 1 ไฟล์.
+2. ถาม Claude หน้าต่าง 2: "list ไฟล์ทั้งหมดใน folder sources/" Claude ต้อง show ว่ามี `sources/README.md` อย่างน้อย 1 ไฟล์
 
 ---
 
@@ -149,9 +149,9 @@ USER: [Waits for student to confirm sources/ folder + README.md created]
 
 ACTION: When the student responds:
 
-1. ถ้า folder + README สร้างแล้ว, say "ดี โครงสร้างพร้อม ต่อไปใส่ source แรก." Move to Step 2.5 (ใส่ source ตัวอย่าง).
-2. **Plan-mode branch:** ถ้า Claude ในหน้าต่าง 2 ขอ approve ก่อน, บอก student: "หน้าต่าง 2 อยู่ใน Plan mode. approve plan หรือสลับเป็น Auto mode แล้ว paste ใหม่. รอจนสร้างเสร็จแล้วบอกผม." Wait until folder exists.
-3. ถ้า Claude สร้าง `sources/` แต่ไม่มี README, paste ในหน้าต่าง 2: "เพิ่ม `sources/README.md` ตามเนื้อหาที่ส่งให้ก่อนหน้านี้." Wait.
+1. ถ้า folder + README สร้างแล้ว, say "ดี โครงสร้างพร้อม ต่อไปใส่ source แรก" Move to Step 2.5 (ใส่ source ตัวอย่าง).
+2. **Plan-mode branch:** ถ้า Claude ในหน้าต่าง 2 ขอ approve ก่อน, บอก student: "หน้าต่าง 2 อยู่ใน Plan mode. approve plan หรือสลับเป็น Auto mode แล้ว paste ใหม่ รอจนสร้างเสร็จแล้วบอกผม" Wait until folder exists.
+3. ถ้า Claude สร้าง `sources/` แต่ไม่มี README, paste ในหน้าต่าง 2: "เพิ่ม `sources/README.md` ตามเนื้อหาที่ส่งให้ก่อนหน้านี้" Wait.
 4. ถ้า Claude สร้าง folder ผิดที่ (เช่น ใน `.claude/sources/` หรือใน subfolder อื่น), paste: "ย้าย sources/ ไปที่ root ของ project (ระดับเดียวกับ briefs/, .claude/)." Wait for fix.
 
 ---
@@ -330,15 +330,15 @@ ACTION: When the student responds:
 
 1. ถ้าทั้ง 3 ผ่าน, say "ดี skill รู้แล้วว่ามี sources/. ลองรันเทียบ v2 vs v1." Move to Step 4.
 2. **Plan-mode branch:** ถ้า Claude ขอ approve, บอก: "approve plan. ถ้า Plan mode บอกจะ overwrite ทั้งไฟล์ reject ก่อน แล้ว paste ใหม่บอก 'edit เฉพาะ 2 sections, ห้ามแทนที่ของเดิม'." Wait.
-3. ถ้า Claude **แทนที่** SKILL.md ทั้งไฟล์ (ลบ section อื่น), paste: "เพิ่งทำผิด. restore content เดิมของ SKILL.md (Lesson 2 version: 6 sections + Voice rules + When unsure) แล้วแก้เฉพาะ section Steps กับ Latest earnings ตามที่ส่งไป. ส่วนอื่นห้ามแตะ." Wait.
+3. ถ้า Claude **แทนที่** SKILL.md ทั้งไฟล์ (ลบ section อื่น), paste: "เพิ่งทำผิด restore content เดิมของ SKILL.md (Lesson 2 version: 6 sections + Voice rules + When unsure) แล้วแก้เฉพาะ section Steps กับ Latest earnings ตามที่ส่งไป ส่วนอื่นห้ามแตะ" Wait.
 4. ถ้า Claude แก้แต่ section Steps ใหม่ขัดแย้งกับ Steps เดิม (เช่น double-numbered, missing step), paste: "show full Steps section ทั้งก้อน, ถ้ามี step ซ้ำหรือ missing, fix และ renumber ตาม flow ที่สมเหตุสมผล: confirm ticker → read CLAUDE.md voice → read sources/<TICKER>/ → research → save → display." Wait.
-5. ถ้าทุกอย่างถูกแต่ student บอกว่า "ผมไม่เห็นต่างจากเดิมเลย" (เพราะ section อื่นยาว step ใหม่หลบสายตา), ตอบ: "ปกติครับ. ลอง grep หรือถาม Claude หน้าต่าง 2: 'show แค่ section Steps และ section Latest earnings' Claude จะ extract ให้." Wait for re-show.
+5. ถ้าทุกอย่างถูกแต่ student บอกว่า "ผมไม่เห็นต่างจากเดิมเลย" (เพราะ section อื่นยาว step ใหม่หลบสายตา), ตอบ: "ปกติครับ ลอง grep หรือถาม Claude หน้าต่าง 2: 'show แค่ section Steps และ section Latest earnings' Claude จะ extract ให้" Wait for re-show.
 
 ---
 
 ## Step 4: รัน /brief AAPL v2, เทียบกับ v1
 
-เป้าหมาย: ดูด้วยตา ว่า section "Latest earnings" ของ v2 (มี sources/) ต่างจาก v1 (Lesson 2) ยังไง.
+เป้าหมาย: ดูด้วยตา ว่า section "Latest earnings" ของ v2 (มี sources/) ต่างจาก v1 (Lesson 2) ยังไง
 
 **ก่อนรัน, expectation:**
 
@@ -348,10 +348,10 @@ ACTION: When the student responds:
 
 ACTION: Tell the student to do these 3 things in order:
 
-0. ถ้าอยากเก็บ brief v1 ไว้เทียบ copy ไฟล์ `briefs/AAPL.md` ไปที่ `briefs/AAPL-v1.md` ก่อนรัน เพราะ `/brief AAPL` จะ overwrite ไฟล์เดิม.
+0. ถ้าอยากเก็บ brief v1 ไว้เทียบ copy ไฟล์ `briefs/AAPL.md` ไปที่ `briefs/AAPL-v1.md` ก่อนรัน เพราะ `/brief AAPL` จะ overwrite ไฟล์เดิม
 
 1. ในหน้าต่าง 2 พิมพ์ `/brief AAPL` (หรือ ticker ที่เขาใช้ใน sources/).
-2. รอ Claude ทำเสร็จ. Plan mode → approve.
+2. รอ Claude ทำเสร็จ Plan mode → approve.
 3. เปิดไฟล์ `briefs/AAPL.md` (จะถูก overwrite จาก v1) แล้วเทียบ section "Latest earnings" ของ v1 (จำได้คร่าวๆ) กับ v2.
 
 ตัวที่ student ควรสังเกต (บอกเขาก่อน paste):
@@ -378,37 +378,37 @@ USER: [Waits for student to report v2 brief output]
 
 ACTION: When the student responds:
 
-1. **Latest earnings ใหม่ trace ไฟล์ + honest ว่า placeholder ไม่มี data จริง**, say "structural fix เข้าผลแล้ว. ที่นี้ Claude อ่านจริงไม่เดา." Move to Step 5.
+1. **Latest earnings ใหม่ trace ไฟล์ + honest ว่า placeholder ไม่มี data จริง**, say "structural fix เข้าผลแล้ว ที่นี้ Claude อ่านจริงไม่เดา" Move to Step 5.
 
 2. **Latest earnings ยังเหมือน v1 (เดาตัวเลข ไม่ trace ไฟล์)**, แสดงว่า skill ไม่อ่าน sources/ ลำดับแก้:
-   - paste ในหน้าต่าง 2: "เพิ่งรัน /brief AAPL, Claude อ่านไฟล์ใน `sources/AAPL/` ก่อนเขียน Latest earnings section หรือเปล่า? ถ้าไม่, ทำไม? show step ที่ skill `company-brief` ทำตาม."
-   - ถ้า Claude ตอบ "ผมไม่ได้อ่าน sources/ เพราะ Step ใน SKILL.md ไม่ชัด" หรืออะไรประมาณนี้, paste: "รัน /brief AAPL ใหม่ ก่อนเขียน Latest earnings section, อ่านทุกไฟล์ใน `sources/AAPL/` แล้วเขียน Latest earnings ตามที่อ่านได้จริงเท่านั้น. ทุก bullet ต้องระบุ source path ใน parens."
-   - ถ้ายังเหมือนเดิม, ปัญหาที่ Step 3 edit. paste: "show ปัจจุบันของ section ## Steps และ ### 3. Latest earnings ใน `.claude/skills/company-brief/SKILL.md`" → ถ้าไม่มี step "read sources/<TICKER>/" จริง, กลับไป Step 3 paste prompt อีกที.
+   - paste ในหน้าต่าง 2: "เพิ่งรัน /brief AAPL, Claude อ่านไฟล์ใน `sources/AAPL/` ก่อนเขียน Latest earnings section หรือเปล่า? ถ้าไม่, ทำไม? show step ที่ skill `company-brief` ทำตาม"
+   - ถ้า Claude ตอบ "ผมไม่ได้อ่าน sources/ เพราะ Step ใน SKILL.md ไม่ชัด" หรืออะไรประมาณนี้, paste: "รัน /brief AAPL ใหม่ ก่อนเขียน Latest earnings section, อ่านทุกไฟล์ใน `sources/AAPL/` แล้วเขียน Latest earnings ตามที่อ่านได้จริงเท่านั้น ทุก bullet ต้องระบุ source path ใน parens."
+   - ถ้ายังเหมือนเดิม, ปัญหาที่ Step 3 edit. paste: "show ปัจจุบันของ section ## Steps และ ### 3. Latest earnings ใน `.claude/skills/company-brief/SKILL.md`" → ถ้าไม่มี step "read sources/<TICKER>/" จริง, กลับไป Step 3 paste prompt อีกที
 
-3. **Latest earnings trace ไฟล์ แต่ใส่ข้อมูลที่ไม่มีในไฟล์** (เช่น Claude เขียน data point ที่ source ไม่ได้พูดถึง), ตอบ: "นี่ failure mode น่าระวัง. SKILL.md ห้ามแต่ง source แล้วแต่ Claude ยังลื่น. paste reminder: 'รัน /brief AAPL ใหม่ Latest earnings ห้ามมีข้อมูลที่ไม่ปรากฏในไฟล์ใน sources/AAPL/. ทุก bullet ต้อง quote หรือ paraphrase content ที่อยู่ใน source จริง.'"
+3. **Latest earnings trace ไฟล์ แต่ใส่ข้อมูลที่ไม่มีในไฟล์** (เช่น Claude เขียน data point ที่ source ไม่ได้พูดถึง), ตอบ: "นี่ failure mode น่าระวัง SKILL.md ห้ามแต่ง source แล้วแต่ Claude ยังลื่น paste reminder: 'รัน /brief AAPL ใหม่ Latest earnings ห้ามมีข้อมูลที่ไม่ปรากฏในไฟล์ใน sources/AAPL/. ทุก bullet ต้อง quote หรือ paraphrase content ที่อยู่ใน source จริง'"
 
-4. **5 sections อื่นถูกลบไป** (เหลือแค่ Latest earnings), แสดงว่า edit Step 3 รุนแรงเกิน. paste: "ตรวจ SKILL.md ตอนนี้, section Output format ต้องครบ 6 sub-sections: Company snapshot, Fundamentals signal, Latest earnings, Bull/Bear, Kill conditions, What to ask. ถ้าขาดอะไร restore." Wait. Then re-run /brief.
+4. **5 sections อื่นถูกลบไป** (เหลือแค่ Latest earnings), แสดงว่า edit Step 3 รุนแรงเกิน paste: "ตรวจ SKILL.md ตอนนี้, section Output format ต้องครบ 6 sub-sections: Company snapshot, Fundamentals signal, Latest earnings, Bull/Bear, Kill conditions, What to ask. ถ้าขาดอะไร restore." Wait. Then re-run /brief.
 
-5. ถ้า student replace ด้วย transcript จริง + Claude extract bullets จาก transcript ได้ดี, point out: "นี่คือ pattern ของจริง. source ใน sources/ เปลี่ยน, output ของ /brief เปลี่ยนตาม คุณ control quality ผ่าน source ที่คุณเลือก."
+5. ถ้า student replace ด้วย transcript จริง + Claude extract bullets จาก transcript ได้ดี, point out: "นี่คือ pattern ของจริง source ใน sources/ เปลี่ยน, output ของ /brief เปลี่ยนตาม คุณ control quality ผ่าน source ที่คุณเลือก"
 
 ---
 
 ## Step 5: คุม cost ด้วย `/context` + model picker
 
-skill ฉลาดขึ้นแล้ว แต่อาจเริ่มกิน token เยอะขึ้นเพราะอ่าน sources/ เพิ่ม. ก่อนปิด lesson เราต้องรู้ 2 อย่าง:
+skill ฉลาดขึ้นแล้ว แต่อาจเริ่มกิน token เยอะขึ้นเพราะอ่าน sources/ เพิ่ม ก่อนปิด lesson เราต้องรู้ 2 อย่าง:
 
 1. **กี่ % ของ context window ใช้ไปแล้ว** (Claude Code มีคำสั่งอย่างน้อย 1 ตัวบอกได้ ผมจะให้ student ลอง 2-3 รูปแบบ)
 2. **Model ที่ใช้ตอนนี้คืออะไร** + เมื่อไหร่ควรสลับเป็น Haiku / Opus
 
-**Honest หมายเหตุ:** ชื่อคำสั่งที่ใช้ดู context อาจต่างใน Claude Code version ของคุณ. **ผมไม่รู้ version ของคุณเป๊ะๆ.** เราทดสอบเอา ถ้า command 1 ตัวไม่ได้ผม fallback ตัวอื่น. Claude หน้าต่าง 2 ตอบให้ได้ว่า version ของคุณใช้คำสั่งไหน.
+**Honest หมายเหตุ:** ชื่อคำสั่งที่ใช้ดู context อาจต่างใน Claude Code version ของคุณ **ผมไม่รู้ version ของคุณเป๊ะๆ.** เราทดสอบเอา ถ้า command 1 ตัวไม่ได้ผม fallback ตัวอื่น Claude หน้าต่าง 2 ตอบให้ได้ว่า version ของคุณใช้คำสั่งไหน
 
 ACTION: Hand the student these prompts to paste **ทีละตัว** in window 2 (ไม่ต้อง paste พร้อมกัน):
 
 **(a) ดู token usage:**
 
-> ผมอยากดูว่า session นี้กิน context window ไปกี่ % แล้ว. Claude Code version ปัจจุบันของผมใช้คำสั่งหรือวิธีไหน? ลอง suggest 1-2 options ที่ work ใน version นี้ แล้วผมจะลองรัน.
+> ผมอยากดูว่า session นี้กิน context window ไปกี่ % แล้ว Claude Code version ปัจจุบันของผมใช้คำสั่งหรือวิธีไหน? ลอง suggest 1-2 options ที่ work ใน version นี้ แล้วผมจะลองรัน
 
-(บาง version มี `/context`, บางตัวมี `/cost`, บางตัวมี statusline ด้านล่างที่โชว์ %, บางตัวต้องใช้ `/status`. ให้ Claude หน้าต่าง 2 บอกว่า version คุณรองรับอันไหน.)
+(บาง version มี `/context`, บางตัวมี `/cost`, บางตัวมี statusline ด้านล่างที่โชว์ %, บางตัวต้องใช้ `/status`. ให้ Claude หน้าต่าง 2 บอกว่า version คุณรองรับอันไหน)
 
 **(b) ดู model ตอนนี้ + วิธีสลับ:**
 
@@ -420,13 +420,13 @@ ACTION: Hand the student these prompts to paste **ทีละตัว** in win
 
 **แนวทางของผม (Paint), ของง่าย ไม่ใช่ rule สากล:**
 
-- **Sonnet** = default. งาน 80% ใช้ตัวนี้พอ. การเขียน /brief, ตอบ Q&A ทั่วไป, edit ไฟล์เล็กๆ
-- **Opus** = งานยาก คิดเยอะ output สำคัญ. เช่น ตัดสินใจ thesis ใหญ่, refactor architecture, debug ที่ Sonnet ติด
-- **Haiku** = งานซ้ำๆ ไม่ต้องคิดเยอะ. เช่น index ไฟล์, สรุป CSV, classify document
+- **Sonnet** = default. งาน 80% ใช้ตัวนี้พอ การเขียน /brief, ตอบ Q&A ทั่วไป, edit ไฟล์เล็กๆ
+- **Opus** = งานยาก คิดเยอะ output สำคัญ เช่น ตัดสินใจ thesis ใหญ่, refactor architecture, debug ที่ Sonnet ติด
+- **Haiku** = งานซ้ำๆ ไม่ต้องคิดเยอะ เช่น index ไฟล์, สรุป CSV, classify document
 
-ใน Lesson 4 เรา split /brief เป็น 3 sub-agent, sub-agent บางตัว (เช่น "list ข่าวที่เห็นใน sources/") สามารถใช้ Haiku ก็ได้ เพราะ mechanical. ตอนนี้ทั้ง pipeline run บน Sonnet พอ.
+ใน Lesson 4 เรา split /brief เป็น 3 sub-agent, sub-agent บางตัว (เช่น "list ข่าวที่เห็นใน sources/") สามารถใช้ Haiku ก็ได้ เพราะ mechanical. ตอนนี้ทั้ง pipeline run บน Sonnet พอ
 
-**Cost intuition (ที่ผมใช้):** ถ้า session ปัจจุบันใช้ context > 70% แล้วงานยังไม่เสร็จ, นั่นคือ signal ว่าคุย session นี้ยาวไป. หรือ output มันเริ่มเลื่อนเลือน. วิธีแก้: เริ่ม session ใหม่ + sum สิ่งที่ทำเป็น summary สั้นๆ ใส่ใน chat ใหม่ ไม่ต้อง drag history เก่ามาทั้งหมด. นี่ pattern ที่หลายคนเรียก "context refresh."
+**Cost intuition (ที่ผมใช้):** ถ้า session ปัจจุบันใช้ context > 70% แล้วงานยังไม่เสร็จ, นั่นคือ signal ว่าคุย session นี้ยาวไป หรือ output มันเริ่มเลื่อนเลือน วิธีแก้: เริ่ม session ใหม่ + sum สิ่งที่ทำเป็น summary สั้นๆ ใส่ใน chat ใหม่ ไม่ต้อง drag history เก่ามาทั้งหมด นี่ pattern ที่หลายคนเรียก "context refresh."
 
 ---
 
@@ -444,15 +444,15 @@ USER: [Waits for student to report token usage + current model + concept underst
 
 ACTION: When the student responds:
 
-1. ถ้า student ได้ token % ออกมาจริง + model ปัจจุบันชัด, say "ดี ตอนนี้คุณรู้ว่าเครื่องมือกินไปกี่ %, รู้ว่าใช้ model ไหน. ไว้มีประโยชน์ตอน session ยาวๆ ที่รู้สึกว่า Claude เริ่มตอบช้าลง." Move to Step 6.
+1. ถ้า student ได้ token % ออกมาจริง + model ปัจจุบันชัด, say "ดี ตอนนี้คุณรู้ว่าเครื่องมือกินไปกี่ %, รู้ว่าใช้ model ไหน ไว้มีประโยชน์ตอน session ยาวๆ ที่รู้สึกว่า Claude เริ่มตอบช้าลง" Move to Step 6.
 
-2. ถ้า command ที่ Claude แนะนำใช้ไม่ได้ (เช่น `/context` ไม่ existent ใน version ของ student), ตอบ: "ไม่เป็นไรครับ ของพวกนี้ change ระหว่าง version. paste อีกที ในหน้าต่าง 2: 'คำสั่งที่ผมลอง [ชื่อ command] ไม่ work. ลอง list คำสั่งทั้งหมดที่ Claude Code version นี้รับใน chat แล้วชี้ว่าตัวไหนดู context/token usage.' Claude จะ list ให้." Wait for fix.
+2. ถ้า command ที่ Claude แนะนำใช้ไม่ได้ (เช่น `/context` ไม่ existent ใน version ของ student), ตอบ: "ไม่เป็นไรครับ ของพวกนี้ change ระหว่าง version. paste อีกที ในหน้าต่าง 2: 'คำสั่งที่ผมลอง [ชื่อ command] ไม่ work. ลอง list คำสั่งทั้งหมดที่ Claude Code version นี้รับใน chat แล้วชี้ว่าตัวไหนดู context/token usage.' Claude จะ list ให้" Wait for fix.
 
-3. ถ้า student บอก "ผมหาไม่เจอ statusline / model ก็ไม่รู้", ตอบ: "ของพวกนี้บางทีอยู่ใน setting page ของ Claude Code ไม่ใช่ chat. ลองถามใน chat หน้าต่าง 2 ตรงๆ: 'show วิธีดู status (model + token usage) ใน Claude Code version นี้, list step-by-step.' Claude version ปัจจุบันรู้คำตอบ."
+3. ถ้า student บอก "ผมหาไม่เจอ statusline / model ก็ไม่รู้", ตอบ: "ของพวกนี้บางทีอยู่ใน setting page ของ Claude Code ไม่ใช่ chat. ลองถามใน chat หน้าต่าง 2 ตรงๆ: 'show วิธีดู status (model + token usage) ใน Claude Code version นี้, list step-by-step.' Claude version ปัจจุบันรู้คำตอบ"
 
-4. ถ้า student งง concept "เมื่อไหร่ใช้ model ไหน", ตอบ: "ของง่ายๆ คือ: default ใช้ Sonnet. ถ้ามันตอบไม่ตรง / คิดผิด ลองสลับ Opus แล้วถามคำถามเดิม. ถ้างานเป็น list / count / extract ที่ไม่ต้องคิด ลอง Haiku ดู (จะเร็วกว่ามาก). คุณเลือก trial-and-error ภายในเดือนแรกก็พอ."
+4. ถ้า student งง concept "เมื่อไหร่ใช้ model ไหน", ตอบ: "ของง่ายๆ คือ: default ใช้ Sonnet. ถ้ามันตอบไม่ตรง / คิดผิด ลองสลับ Opus แล้วถามคำถามเดิม ถ้างานเป็น list / count / extract ที่ไม่ต้องคิด ลอง Haiku ดู (จะเร็วกว่ามาก). คุณเลือก trial-and-error ภายในเดือนแรกก็พอ"
 
-5. ถ้า student ถาม "ผมจ่ายเงินไหม", ตอบ honest: "ผมไม่รู้ plan ของคุณเป๊ะๆ. ถ้าคุณใช้ subscription Max ของ Anthropic, model สลับได้แต่ใน quota รายเดือน. ถ้าใช้ API key per-call, จ่ายตาม token Sonnet vs Opus vs Haiku ราคาต่างกัน 5-10 เท่า. ตรวจที่ console.anthropic.com / claude.ai billing ของคุณเอง." Don't fabricate numbers.
+5. ถ้า student ถาม "ผมจ่ายเงินไหม", ตอบ honest: "ผมไม่รู้ plan ของคุณเป๊ะๆ ถ้าคุณใช้ subscription Max ของ Anthropic, model สลับได้แต่ใน quota รายเดือน ถ้าใช้ API key per-call, จ่ายตาม token Sonnet vs Opus vs Haiku ราคาต่างกัน 5-10 เท่า ตรวจที่ console.anthropic.com / claude.ai billing ของคุณเอง" Don't fabricate numbers.
 
 ---
 
@@ -464,7 +464,7 @@ ACTION: When the student responds:
 
 ### Bonus 1: ทำไมแค่ earnings transcript? เครื่องมือเสริมเช่น NotebookLM อยู่ที่ไหน
 
-วันนี้เราใช้แค่ earnings transcript เป็น source — เพราะมันคือเอกสารตรงจากบริษัท ไม่ใช่ข่าวที่คนอื่น interpret แต่บางครั้งคุณอยากใส่ source หลายไฟล์ (10-K + transcript + press release + ข่าวที่เราเชื่อถือ) ปัญหาคือ source ยิ่งเยอะ ยิ่งกิน context ของ Claude
+วันนี้เราใช้แค่ earnings transcript เป็น source เพราะมันคือเอกสารตรงจากบริษัท ไม่ใช่ข่าวที่คนอื่น interpret แต่บางครั้งคุณอยากใส่ source หลายไฟล์ (10-K + transcript + press release + ข่าวที่เราเชื่อถือ) ปัญหาคือ source ยิ่งเยอะ ยิ่งกิน context ของ Claude
 
 เครื่องมืออย่าง **NotebookLM** ของ Google ช่วยตรงนี้ ใส่ source หลายอันใน notebook เดียว ถามคำถาม Q&A แล้ว save คำตอบกลับเป็น md ใน sources/ ของเรา NotebookLM ทำหน้าที่เหมือน **upstream curator** ก่อนผ่านมาที่ Claude Code
 
@@ -505,9 +505,9 @@ USER: [Waits for student to confirm understanding or ask questions]
 ACTION: When the student responds:
 
 1. ถ้า student บอก "ok", move to wrap up + handoff.
-2. ถ้าถาม "ผมต้องลง NotebookLM CLI ไหม", ตอบ: "ไม่ต้องในคอร์สนี้ครับ. CLI มีแต่ beginner-hostile (Python install + Google OAuth). web NotebookLM + paste-from-file = pattern เดียวกันใน 80% ของกรณี. CLI เก็บไว้เมื่อคุณ workflow scale มากเท่านั้น."
+2. ถ้าถาม "ผมต้องลง NotebookLM CLI ไหม", ตอบ: "ไม่ต้องในคอร์สนี้ครับ CLI มีแต่ beginner-hostile (Python install + Google OAuth). web NotebookLM + paste-from-file = pattern เดียวกันใน 80% ของกรณี CLI เก็บไว้เมื่อคุณ workflow scale มากเท่านั้น"
 3. ถ้าถาม "Lesson 4 จะ split /brief เป็น sub-agents ไง สลับ model ที่นั่นไหม", ตอบ: "ใช่ครับ Lesson 4 sub-agent บางตัว (เช่นตัวที่อ่าน sources/ แล้ว extract bullets) จะสลับเป็น Haiku ได้ เพราะงาน mechanical. ตัวที่ตัดสินใจ Bull/Bear / Kill conditions ใช้ Sonnet หรือ Opus. คุณจะเห็น cost ลงเองหลัง split."
-4. ถ้าถาม "ถ้า Claude อ่าน PDF ใน sources/ ได้ ผม save 10-K PDF เลยได้ไหม", ตอบ: "ได้ครับ Claude Code version ปัจจุบันอ่าน PDF ได้ตรง. ระวัง 10-K ใหญ่ (200+ pages) จะกิน token เยอะ. Lesson 5 / advanced จะคุยเรื่อง chunking PDF ใหญ่. ตอนนี้ใช้ excerpt ของ section สำคัญ (MD&A, Risk Factors) พอ."
+4. ถ้าถาม "ถ้า Claude อ่าน PDF ใน sources/ ได้ ผม save 10-K PDF เลยได้ไหม", ตอบ: "ได้ครับ Claude Code version ปัจจุบันอ่าน PDF ได้ตรง ระวัง 10-K ใหญ่ (200+ pages) จะกิน token เยอะ Lesson 5 / advanced จะคุยเรื่อง chunking PDF ใหญ่ ตอนนี้ใช้ excerpt ของ section สำคัญ (MD&A, Risk Factors) พอ"
 
 ---
 
@@ -535,9 +535,9 @@ USER: [Waits for student final checklist confirmation]
 
 ACTION: When the student responds:
 
-1. ถ้าผ่าน 6-7/7, say "ครบ Lesson 3 ผ่าน. /brief ตอนนี้อ่าน external source จริง + คุณเริ่มเห็น cost ของ session ตัวเอง." Move to "What just happened" + Common Stumbles + handoff.
-2. ถ้าผ่าน 4-5/7, focus แก้ข้อที่ค้าง. ห้ามขึ้น Lesson 4 ถ้า ข้อ 3 หรือ ข้อ 4 ค้าง (structural blocker, Lesson 4 build ต่อจาก v2 brief นี้).
-3. ถ้าผ่าน <4/7, suggest กลับไป step ที่ค้าง. ข้อ 5+6 (cost / model) ถ้ายังไม่เห็นผ่านได้, partial pass OK ตราบที่รู้ว่า command อะไรลองได้. รายละเอียดจะคุ้นเองเมื่อใช้เยอะขึ้น.
+1. ถ้าผ่าน 6-7/7, say "ครบ Lesson 3 ผ่าน /brief ตอนนี้อ่าน external source จริง + คุณเริ่มเห็น cost ของ session ตัวเอง" Move to "What just happened" + Common Stumbles + handoff.
+2. ถ้าผ่าน 4-5/7, focus แก้ข้อที่ค้าง ห้ามขึ้น Lesson 4 ถ้า ข้อ 3 หรือ ข้อ 4 ค้าง (structural blocker, Lesson 4 build ต่อจาก v2 brief นี้).
+3. ถ้าผ่าน <4/7, suggest กลับไป step ที่ค้าง ข้อ 5+6 (cost / model) ถ้ายังไม่เห็นผ่านได้, partial pass OK ตราบที่รู้ว่า command อะไรลองได้ รายละเอียดจะคุ้นเองเมื่อใช้เยอะขึ้น
 
 ---
 
@@ -551,29 +551,37 @@ ACTION: When the student responds:
 4. รัน /brief AAPL v2 ดู section Latest earnings ที่ตอนนี้อ่านจาก source จริง
 5. รู้คำสั่งดู token usage ใน Claude Code version ของคุณ + รู้ pattern เลือก model ตามงาน
 
-`/brief` ตอนนี้ honest กว่าเดิมเยอะ. section Latest earnings trace กลับไปไฟล์ได้, ไม่ใช่ "Claude เดาจากความน่าจะเป็น."
+`/brief` ตอนนี้ honest กว่าเดิมเยอะ section Latest earnings trace กลับไปไฟล์ได้, ไม่ใช่ "Claude เดาจากความน่าจะเป็น"
+
+### ก่อนปิด lesson, วิธีจับ Claude แต่ง
+
+skill บังคับ trace source แล้วก็จริง แต่ Claude ลื่นได้ จับให้ได้ด้วยตัวเอง 3 ข้อ:
+
+- **สัญญาณว่า Claude แต่ง** ตัวเลข (revenue, margin, %) หรือชื่อ exec ที่เฉพาะเจาะจงมากแต่ section ไม่ระบุ source path บอกได้เลยว่าน่าสงสัย ของจริง trace กลับไฟล์ใน sources/ ได้เสมอ
+- **Verify by grep** เปิดไฟล์ใน sources/<TICKER>/ แล้วลองค้นคำหรือตัวเลขที่ Claude อ้าง ถ้าไม่เจอใน file = ของแต่ง ถามใน หน้าต่าง 2 ก็ได้ "ค้นใน sources/AAPL/q1-2026-call.md หา [คำ/ตัวเลขที่สงสัย] เจอไหม"
+- **กฎเหล็ก** ถ้า /brief อ้างตัวเลขที่ไม่มีในไฟล์ source = ของแต่ง ไม่ใช่งานจริง re-run + reminder "ทุก bullet ต้อง trace ไฟล์ใน sources/"
 
 ที่ยัง weak อยู่:
 
 - ทำงาน sequential ทีละ section เปลือง token (Lesson 4 แตก 3 sub-agent ขนาน + บาง sub-agent ใช้ Haiku ลด cost)
 - ใช้ในเครื่องคุณคนเดียว (Lesson 5 deploy showcase)
 
-แต่ตอนนี้ pipeline ของ /brief ของคุณมี 4 layer พร้อมแล้ว: skill SOP + voice + external source + cost awareness. นี่คือโครงของเครื่องมือลงทุนของคุณเอง.
+แต่ตอนนี้ pipeline ของ /brief ของคุณมี 4 layer พร้อมแล้ว: skill SOP + voice + external source + cost awareness. นี่คือโครงของเครื่องมือลงทุนของคุณเอง
 
 ---
 
 ## Common stumbles (ถ้าติดตรงไหน)
 
-- **Latest earnings ยังเหมือน v1 ไม่ trace ไฟล์** SKILL.md ไม่อ่าน sources/. ตาม Step 4 ACTION ข้อ 2: ถาม Claude หน้าต่าง 2 ทำไม + show step ปัจจุบันของ skill. ถ้าจริงๆ Steps section ไม่มี "read sources/" กลับ Step 3 paste prompt ใหม่.
+- **Latest earnings ยังเหมือน v1 ไม่ trace ไฟล์** SKILL.md ไม่อ่าน sources/. ตาม Step 4 ACTION ข้อ 2: ถาม Claude หน้าต่าง 2 ทำไม + show step ปัจจุบันของ skill. ถ้าจริงๆ Steps section ไม่มี "read sources/" กลับ Step 3 paste prompt ใหม่
 - **Claude เปิด `sources/` ไม่เจอ** ตรวจ path ต้องเป็น `sources/<TICKER>/` ที่ root ของ project (ระดับเดียวกับ `briefs/`, `.claude/`). ไม่ใช่ใน `.claude/sources/`. ถ้าผิดที่ paste: "ย้าย sources/ ไปที่ root" ในหน้าต่าง 2.
-- **Source file ใส่แล้วแต่ Claude ไม่อ่าน** อาจเพราะ encoding ของไฟล์ (binary PDF ที่ Claude version คุณยังไม่รองรับ). ทดลอง save เป็น `.md` หรือ `.txt` plain text ก่อน. ถ้า PDF แน่ใจว่ารองรับ ถาม Claude หน้าต่าง 2: "อ่านไฟล์ `sources/AAPL/<filename>.pdf` ได้ไหม show paragraph แรก."
-- **PDF ใหญ่กิน token เยอะ** 10-K 200 หน้ากิน 100K+ tokens. ใช้ excerpt section ที่สำคัญ (MD&A, Risk Factors) แทน. Lesson หลังจะคุยเรื่อง chunking.
-- **`/context` หรือ `/cost` ไม่ถูก recognize** version ของ Claude Code คุณอาจใช้ชื่อต่าง. ถาม Claude หน้าต่าง 2: "list คำสั่ง slash ทั้งหมดที่ session นี้รับ" Claude จะ enumerate ให้.
-- **Model สลับใน chat ไม่ได้** บาง version model picker อยู่ใน setting / preference page, ไม่อยู่ใน chat UI. ถาม Claude หน้าต่าง 2: "show me the exact UI step to switch model in this Claude Code version" Claude version ปัจจุบันรู้ทาง.
-- **Latest earnings bullets มี source path แต่ paths ผิด** Claude สร้าง path ที่ไม่มีอยู่. paste reminder: "ทุก path ใน Latest earnings ต้อง verify ว่ามีจริงใน `sources/<TICKER>/`. show actual file list ก่อนเขียน."
-- **paste prompt ผิดหน้าต่าง** prompt ทั้งหมดต้องไปหน้าต่าง 2. ถ้าเผลอ paste ในหน้าต่าง 1 (ที่ผมพูดอยู่) ผมจะตอบเหมือน Claude ปกติ แต่ไฟล์จะไปสร้างใน folder คอร์ส `ltd-ai-101` ไม่ใช่ folder ของคุณ. ลบไฟล์ที่หลงสร้างใน `ltd-ai-101` แล้วสลับไปหน้าต่าง 2.
+- **Source file ใส่แล้วแต่ Claude ไม่อ่าน** อาจเพราะ encoding ของไฟล์ (binary PDF ที่ Claude version คุณยังไม่รองรับ). ทดลอง save เป็น `.md` หรือ `.txt` plain text ก่อน ถ้า PDF แน่ใจว่ารองรับ ถาม Claude หน้าต่าง 2: "อ่านไฟล์ `sources/AAPL/<filename>.pdf` ได้ไหม show paragraph แรก"
+- **PDF ใหญ่กิน token เยอะ** 10-K 200 หน้ากิน 100K+ tokens. ใช้ excerpt section ที่สำคัญ (MD&A, Risk Factors) แทน Lesson หลังจะคุยเรื่อง chunking.
+- **`/context` หรือ `/cost` ไม่ถูก recognize** version ของ Claude Code คุณอาจใช้ชื่อต่าง ถาม Claude หน้าต่าง 2: "list คำสั่ง slash ทั้งหมดที่ session นี้รับ" Claude จะ enumerate ให้
+- **Model สลับใน chat ไม่ได้** บาง version model picker อยู่ใน setting / preference page, ไม่อยู่ใน chat UI. ถาม Claude หน้าต่าง 2: "show me the exact UI step to switch model in this Claude Code version" Claude version ปัจจุบันรู้ทาง
+- **Latest earnings bullets มี source path แต่ paths ผิด** Claude สร้าง path ที่ไม่มีอยู่ paste reminder: "ทุก path ใน Latest earnings ต้อง verify ว่ามีจริงใน `sources/<TICKER>/`. show actual file list ก่อนเขียน"
+- **paste prompt ผิดหน้าต่าง** prompt ทั้งหมดต้องไปหน้าต่าง 2. ถ้าเผลอ paste ในหน้าต่าง 1 (ที่ผมพูดอยู่) ผมจะตอบเหมือน Claude ปกติ แต่ไฟล์จะไปสร้างใน folder คอร์ส `ltd-ai-101` ไม่ใช่ folder ของคุณ ลบไฟล์ที่หลงสร้างใน `ltd-ai-101` แล้วสลับไปหน้าต่าง 2.
 
-ถ้าหาทางออกไม่ได้จริงๆ comment มาในคลิปคอร์ส ผมก็เพิ่งหัดเหมือนกัน.
+ถ้าหาทางออกไม่ได้จริงๆ comment มาในคลิปคอร์ส ผมก็เพิ่งหัดเหมือนกัน
 
 ---
 
@@ -587,11 +595,11 @@ ACTION: When the student responds:
 - รู้คำสั่งดู token usage + รู้ model ปัจจุบัน
 - หน้าต่าง 2 (folder `my-first-project`) ยังเปิด
 
-พิมพ์ `Start Lesson 4` ในหน้าต่างนี้ (หน้าต่าง 1 = `ltd-ai-101`) แล้วเปิดหน้าต่าง 2 ค้างไว้.
+พิมพ์ `Start Lesson 4` ในหน้าต่างนี้ (หน้าต่าง 1 = `ltd-ai-101`) แล้วเปิดหน้าต่าง 2 ค้างไว้
 
 ---
 
-STOP: ทั้ง 5 ข้อข้างบน ผ่านครบหรือยัง? ถ้าครบ พิมพ์ "Start Lesson 4". ถ้ายังขาด บอกผมตรงข้อไหน เราเก็บก่อนไปต่อ.
+STOP: ทั้ง 5 ข้อข้างบน ผ่านครบหรือยัง? ถ้าครบ พิมพ์ "Start Lesson 4". ถ้ายังขาด บอกผมตรงข้อไหน เราเก็บก่อนไปต่อ
 
 ---
 
@@ -603,4 +611,4 @@ ACTION: When the student types "Start Lesson 4" or anything that signals they're
 
 If they ask a question or want to revisit something from Lesson 3, answer it. Don't move on until they say they're ready.
 
-If the file `lesson-modules/4-subagents/CLAUDE.md` doesn't exist yet (course is still being shipped lesson by lesson), tell them: "Lesson 4 ยังไม่ ship ครับ คอร์สนี้ทยอยปล่อยทีละบท. เก็บ sources/ + SKILL.md v2 ไว้แบบนั้น Lesson 4 จะ build ต่อจาก /brief v2 นี้โดยตรงด้วยการแตก 3 sub-agents ขนาน. ไว้เจอกัน."
+If the file `lesson-modules/4-subagents/CLAUDE.md` doesn't exist yet (course is still being shipped lesson by lesson), tell them: "Lesson 4 ยังไม่ ship ครับ คอร์สนี้ทยอยปล่อยทีละบท เก็บ sources/ + SKILL.md v2 ไว้แบบนั้น Lesson 4 จะ build ต่อจาก /brief v2 นี้โดยตรงด้วยการแตก 3 sub-agents ขนาน ไว้เจอกัน"
