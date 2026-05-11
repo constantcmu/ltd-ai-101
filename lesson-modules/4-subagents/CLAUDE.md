@@ -391,9 +391,25 @@ ACTION: When the student responds:
 
 นี่คือ moment of truth. รัน /brief แล้วดูด้วยตาว่า sub-agent ทำงานจริงไหม
 
+**ก่อนรัน, ขอแนะนำให้สลับเป็น Auto mode ก่อน** Step นี้คือจุดที่ผมว่าเหมาะสุดของคอร์สที่จะ graduate จาก Plan mode ไป Auto mode
+
+ทำไมตอนนี้ ไม่ใช่ตอนอื่น 3 เหตุผล
+
+หนึ่ง คุณผ่าน Plan mode มา 4 lesson แล้ว (L1, L2, L3 และ L4 Step 1-3) เห็นว่า Claude propose อะไรหน้าตาเป็นยังไง approve ไปกี่ไฟล์ก็จำได้แล้วว่า file write ปกติเป็นแบบไหน กล้ามเนื้อตรงนี้คุณมีแล้ว ไม่ต้องฝึกซ้ำ
+
+สอง งานของ Step 4 blast radius ชัดและจำกัด dispatch จะอ่าน + เขียนเฉพาะใน `.claude/agents/` (ทีม sub-agent ที่ Step 3 ตั้งไว้) `sources/<TICKER>/` (source input อ่านอย่างเดียว) และ `briefs/<TICKER>.md` (output file) ไม่มี delete, ไม่มี system-level change, ไม่มี git/network นอกจาก WebSearch ของ sentiment agent (ซึ่งเป็น tool ของ Claude Code อยู่แล้ว) Auto mode ตรงนี้ปลอดภัยจริง ไม่ใช่ปล่อยมั่วๆ
+
+สาม ของผมเองที่ ClaudyOS รันงาน routine ใน Auto mode หมด Plan mode เก็บไว้ใช้ตอนทำของใหม่ที่ไม่เคยทำ หรือทำอะไรเสี่ยง (เช่น migration ใหญ่ๆ refactor หลายไฟล์) Step 4 ของคุณตอนนี้ไม่ใช่ของใหม่แล้ว มันคือการรันระบบที่คุณเพิ่งสร้างใน Step 3 ผ่าน
+
+**Auto mode คืออะไรกันแน่:** Auto approve file read + file write ให้อัตโนมัติ แต่ยังจะถามก่อน operation อันตราย (delete file, system-level change, install package, etc.) ไม่ใช่ Bypass mode (ที่ Lesson 1 เตือนแรงๆ) Bypass = ปล่อยทุกอย่างไม่ถาม Auto = ปล่อยเฉพาะ routine, ยังกันของหนัก
+
+**วิธีสลับเป็น Auto:** ใน Claude Code version ของคุณ ปุ่มสลับ mode อาจเป็น Tab หรือ Shift+Tab หรือคำสั่ง `/auto` หรือมี picker pop up ตอนเปิด session ลองดูที่ status bar ด้านล่างของหน้าต่าง 2 ถ้าไม่เห็นชัด ถาม Claude หน้าต่าง 2 ตรงๆ ว่า `สลับ mode เป็น Auto ยังไงใน version นี้` Claude จะบอกตาม version ปัจจุบัน
+
+ถ้าอยากอยู่ Plan mode ต่อก็ OK ผมจะใส่ pre-warning ของ 2 path ทั้งคู่ในบล็อคถัดไป Plan mode มี approve ~4-5 รอบ (อธิบายในบุลเลทข้างล่าง) เลือก path ที่คุณ comfortable
+
 **ก่อน paste, ผมเตือนล่วงหน้า:**
 
-- ถ้า Plan mode เปิดอยู่, จะมี approval หลายรอบ อาจ 1 รอบที่บอกแผนรวม, อาจ 3 รอบแยกตาม sub-agent, อาจมากกว่า **ไม่ต้องตกใจ approve ไปเรื่อยๆ ตามที่ Claude แสดง** ปกติ ทุกครั้งที่ Plan mode ขอ approve ปกติคือ Claude ขอเขียนไฟล์ 1 ตัว (agent 1 → agent 2 → agent 3 → SKILL.md update) approve ไปเรื่อยๆ ตามที่ขึ้นมา ไม่ใช่ error ไม่ใช่ retry แค่ progress ทีละไฟล์
+- ถ้าสลับเป็น Auto: Claude จะ dispatch ต่อเนื่องไม่มี approval screens ระหว่างทาง ปล่อยรันรอ output 6 sections มา ถ้าอยู่ Plan: approve ~4-5 รอบตามที่อธิบายข้างล่าง **ไม่ต้องตกใจ approve ไปเรื่อยๆ ตามที่ Claude แสดง** ปกติ ทุกครั้งที่ Plan mode ขอ approve ปกติคือ Claude ขอเขียนไฟล์ 1 ตัว (agent 1 → agent 2 → agent 3 → SKILL.md update) approve ไปเรื่อยๆ ตามที่ขึ้นมา ไม่ใช่ error ไม่ใช่ retry แค่ progress ทีละไฟล์
 - ที่บ่งชัดกว่าความเร็วคือ chat text ที่บอกว่ากำลัง spawn/delegate/dispatch (timing เร็วกว่า corroborate แต่อาจ subjective). ถ้าเห็น text นั้น คือ parallel ทำงานจริง
 - ถ้า output มา 6 sections และ Latest earnings section อิง earnings transcript ชัด + Company snapshot/Fundamentals signal อิง 10-K ชัด, sub-agent ทำงานจริง
 - ถ้า output มา 6 sections แต่เวลา feel เหมือน v2 (sequential), อาจ Claude fall back sequential ภายใน ไม่ fail, แค่ไม่ได้ benefit เร็ว
@@ -412,7 +428,7 @@ ACTION: Tell the student to do these in order:
 
 STOP: บอกผม 5 อย่าง:
 
-1. **Plan-mode approvals**: หน้าต่าง 2 ขอ approve กี่รอบ? (1, 3, มากกว่า, หรือ Auto mode รันเลย?)
+1. **Mode ที่ใช้**: Auto หรือ Plan? (ถ้า Plan ขอ approve กี่รอบ?)
 2. **Sub-agent signal**: chat โชว์คำที่บ่งว่ามีการ delegate (spawning, task, delegating, agent) ไหม?
 3. **Section count**: brief output ครบ 6 sections ไหม?
 4. **Speed**: feel เร็วกว่า v2 (Lesson 3) ไหม? (subjective OK)
@@ -426,9 +442,9 @@ USER: [Waits for student to report v3 brief output, plan-mode approval count, su
 
 ACTION: When the student responds:
 
-1. **3+ plan-mode approvals + delegate signal + 6 sections + faster + sections อิง source จริง**: full pass say "ผ่าน sub-agent ทำงานจริง 3 ตัวขนาน มีอยู่ของ /brief v3 ใน folder คุณเองแล้ว" Move to Step 5.
+1. **Delegate signal ชัด + 6 sections + faster + sections อิง source จริง** (Auto หรือ Plan ก็ได้): full pass say "ผ่าน sub-agent ทำงานจริง 3 ตัวขนาน มีอยู่ของ /brief v3 ใน folder คุณเองแล้ว" Move to Step 5.
 
-2. **1 plan-mode approval + delegate signal + 6 sections + faster + sections อิง source จริง**: ก็ pass version นี้ batch approval รวม say "version ของคุณ batch plan-approval ให้รวมเดียว ไม่ผิดอะไร sub-agent ก็ยัง dispatch จริง" Move to Step 5.
+2. **Delegate signal ชัด + 6 sections + sections อิง source จริง แต่ approval pattern แปลก** (เช่น Plan mode แต่ batch รวมเป็น 1-2 รอบ หรือ Auto mode แต่มี popup ขัด): say "version ของคุณ approval pattern ต่างจากที่ผม draft ไว้ ไม่ผิด sub-agent ก็ยัง dispatch จริง file write ครบ output ใช้ได้" Move to Step 5.
 
 3. **No delegate signal + 6 sections + ไม่ feel เร็ว**: Claude อาจ fall back sequential. ตอบ: "อาจเป็น 1 ใน 2 อย่าง: (a) version ไม่รองรับ parallel dispatch จริงเลย fall back sequential, หรือ (b) Claude อ่าน skill body แล้วเลือก path sequential เพราะคิดว่าเร็วกว่า ลอง paste ใน หน้าต่าง 2: 'เพิ่งรัน /brief AAPL, ตอนนั้น dispatch sub-agent หรือเปล่า ถ้าใช่ใช้ tool ชื่ออะไร ถ้าไม่ใช่ทำไม' Claude จะ explain ให้ ผลลัพธ์ structural ยังดีกว่า v2 แม้ไม่ได้ parallel benefit. ถ้า Claude ตอบว่า fall back, ลอง paste: 'รัน /brief AAPL อีกที force dispatch sub-agent parallel ตามที่ SKILL.md ระบุ ห้าม sequential.' รอบสองอาจ trigger ได้" Then Move to Step 5 anyway, baseline ใช้ได้
 
@@ -436,7 +452,7 @@ ACTION: When the student responds:
 
 5. **Latest earnings ยังแต่งจาก memory** (ตัวเลข specific ที่ transcript ของ Lesson 3 ไม่น่ามี), ตอบ: "earnings sub-agent ลืม source paste: 'รัน /brief AAPL อีกครั้ง earnings sub-agent ต้องอิง earnings transcript ใน sources/AAPL/q*-call.md เท่านั้น ถ้า transcript ไม่มี data ที่ user ถามให้ say so honest ห้ามแต่ง' Re-run ถ้ายังแต่งหลังรอบสอง อาจ source ของ Lesson 3 ไม่ถูก connect ให้ sub-agent กลับไปยืนยัน Lesson 3 source connection ก่อน"
 
-6. **Plan mode ถามเยอะมากจน student fatigue** (5+ approvals กดจนเบื่อ), บอก: "นี่คือ stumble ที่ผมเตือนไว้ Step 4. 3 sub-agent + main Claude orchestrator + file write = หลาย action. Plan mode ปลอดภัยที่สุดแต่กดเยอะ หลังจากครั้งนี้ ถ้าคุ้น flow แล้ว ลองสลับ Auto mode ตอนรัน /brief อีก ลด approval. Plan mode ยังเหมาะตอนทำของใหม่ Auto เหมาะตอน routine." Continue.
+6. **Student เลือกอยู่ Plan แล้ว approval เยอะจนเบื่อกลางทาง อยากสลับ Auto** (ตามที่ผมแนะนำตอนต้น Step), บอก: "OK สลับได้กลางคัน paste ในหน้าต่าง 2: `สลับเป็น Auto mode ตอนนี้ได้ไหม` Claude จะบอก syntax/ปุ่มของ version นี้ให้ ที่เหลือของ Step 4 ปล่อยรันต่อใน Auto ครั้งหน้ารัน /brief ก็เริ่ม Auto ตั้งแต่แรกได้เลย Plan mode เก็บไว้ใช้ตอนทำของใหม่ที่ไม่เคยทำ" Continue.
 
 7. **Sub-agent ตัวใดตัวหนึ่ง fail (เช่น earnings agent error เพราะ transcript file หาย, fundamentals กับ sentiment ทำเสร็จ)**: classic race condition ตอบ: "นี่คือ stumble ที่ผมจะพูดใน Common stumbles main Claude ควร integrate partial output ห้าม fabricate paste: 'sub-agent earnings fail หรือ partial ใน brief Latest earnings section ระบุว่า transcript ไม่ถึง / sub-agent ไม่สำเร็จ ห้ามแต่ง bullet มาแทน ส่วน fundamentals + sentiment ใช้ของจริงตามที่ได้' Re-show file acceptable outcome" Then Move to Step 5.
 
@@ -475,7 +491,7 @@ ACTION: When the student responds:
 
 3. ถ้าผ่าน 4/6 หรือต่ำกว่า, focus แก้เฉพาะข้อที่ค้างก่อน ถ้าข้อ 1 (SKILL.md เรียก agent by name) หรือข้อ 2 (3 agent files มี frontmatter) หรือข้อ 3 (6 sections) ขาด = block, ห้ามขึ้น Lesson 5
 
-4. ถ้า student บอก "Plan mode กด approve 7 รอบเหนื่อยมาก", acknowledge: "นั่นคือ trade-off ของ Plan mode + sub-agent คุ้มเฉพาะตอนทำของใหม่ ครั้งหน้ารัน /brief สลับ Auto mode ก่อน approval ลด"
+4. ถ้า student บอก "Plan mode กด approve 7 รอบเหนื่อยมาก" (ใช้ Plan ทั้งๆ ที่ Step 4 แนะนำ Auto), acknowledge: "ครั้งนี้ผ่านมาแล้วก็ดี ครั้งหน้ารัน /brief เริ่มที่ Auto ตั้งแต่แรกได้เลย Plan เก็บไว้ใช้ตอนทำของใหม่จริงๆ"
 
 ---
 
@@ -508,7 +524,7 @@ ACTION: When the student responds:
 
 - **3 sub-agent race condition** (race condition คือสภาวะที่งานหลายตัวรันพร้อมกันแล้วผลลัพธ์ไม่แน่นอน บางตัวเสร็จก่อน บางตัว fail) **(1 ตัว fail, output partial)**: Claude อาจ fabricate แทน sub-agent ที่ fail กฎ: main Claude **ต้อง report partial honest** ห้ามเติม bullet จาก memory แทน ถ้า earnings agent fail (เช่น transcript file ไม่เจอ) Latest earnings section บอกว่า "sub-agent ไม่สำเร็จ source ไม่ถึง" แทน เห็นในไฟล์แล้วยังแต่ง paste ใน หน้าต่าง 2 ตามที่ผมเขียนใน Step 4 ACTION ข้อ 7
 
-- **Plan-mode approval fatigue (5+ approvals กดจนเบื่อ)**: ปกติของ sub-agent + file write. Plan mode ปลอดภัย แต่ verbose. Workaround: หลังรอบแรกที่ flow คุ้นแล้ว สลับ Auto mode ก่อนรัน /brief ครั้งต่อไป, Auto จะถามเฉพาะเรื่องอันตราย (เช่น delete) ปล่อย dispatch + write ผ่าน ห้าม Bypass mode (อันตราย, จำที่ Lesson 1 บอกได้).
+- **เริ่ม Step 4 ใน Plan mode แล้วเริ่มเบื่อ approval กลางทาง**: สลับเป็น Auto ได้กลางคันไม่ต้องรอจบรอบ paste ในหน้าต่าง 2: `สลับเป็น Auto mode ตอนนี้ได้ไหม` Claude จะบอก syntax/ปุ่มของ version นี้ให้ ที่เหลือของ Step ปล่อยรันใน Auto ห้าม Bypass mode (อันตราย, จำที่ Lesson 1 บอกได้).
 
 - **Sub-agent context isolation surprises**: fundamentals agent เจอ red flag ใน 10-K (เช่น customer concentration risk ใน Item 1A) แต่ earnings agent ไม่รู้ sentiment agent ก็ไม่รู้ main Claude ต้อง catch ตอน integrate ถ้า Bull/Bear case ใน v3 ดู disconnected (Bear pulse ไม่ตรงกับ Fundamentals signal), paste ใน หน้าต่าง 2: "main Claude ตอน integrate ต้อง cross-reference ทั้ง 3 sub-agent output ถ้า fundamentals signal มี red flag ต้องสะท้อนใน Bear case + Kill conditions" Re-run
 
