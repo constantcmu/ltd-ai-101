@@ -18,9 +18,7 @@ Window 1 (folder `ltd-ai-101`) ยังเป็นผม Window 2 (folder `my-
 
 ## ก่อนเริ่ม Lesson 4, อ่านก่อน 30 วินาที
 
-L4 ขึ้นกับว่าอยาก go deeper หรือไม่ ถ้า /brief v2 จาก L3 ครอบคลุมที่อยากใช้แล้ว ข้ามไป L5 ก็ได้ ไม่เสียหาย ของในมือคุณตอนนี้ทำงานจริงแล้วเป็นเครื่องมือ production ใช้ได้ Lesson นี้คือ optimization layer (เร็วขึ้น + clean context) ไม่ใช่ requirement เพราะ sub-agent + concept analyst-team แตกงานขนาน คือก้าวที่ทำให้ /brief เริ่มรู้สึกเหมือนมีทีม junior 3 คนช่วยคุณ research ไม่ใช่คนเดียวเหนื่อยๆ ผ่าน 12 หัวข้อ ถ้าอยากเห็นว่า model นั้นเป็นยังไง ลองต่อ ถ้าลองแล้วติดยาว ข้าม L5 ก่อนได้
-
-L4 = upgrade ไม่ใช่ gate ถ้าผ่านได้ดี ของจะเร็วและ clean ขึ้น ถ้าผ่านไม่ได้ ของยังใช้งาน production ได้ด้วย /brief v2 จาก Lesson 3
+L4 ขึ้นกับว่าอยาก go deeper หรือไม่ ถ้า /brief v2 จาก L3 ครอบคลุมที่อยากใช้แล้ว ข้ามไป L5 ก็ได้ ไม่เสียหาย ของในมือคุณตอนนี้ทำงานจริงแล้วเป็นเครื่องมือ production ใช้ได้ Lesson นี้คือ optimization layer (เร็วขึ้น + clean context) ไม่ได้จำเป็นสำหรับทุกคน  เพราะ sub-agent + concept analyst-team แตกงานขนาน คือก้าวที่ทำให้ /brief เริ่มรู้สึกเหมือนมีทีม junior 3 คนช่วยคุณ research ไม่ใช่คนเดียวเหนื่อยๆ ผ่าน 12 หัวข้อ ถ้าอยากเห็นว่า model นั้นเป็นยังไง ลองต่อ แต่ถ้าลองแล้วคิดว่าไม่ได้ใช้  ข้าม L5 ก่อนได้
 
 ---
 
@@ -41,7 +39,7 @@ Paint เรียกอันนี้ว่า "งูกินหางตั
 2. **Earnings agent** = อ่าน earnings call transcript จาก L3 → ตัวเลขไตรมาสล่าสุด + guidance + management commentary
 3. **News-sentiment agent** = ใช้ WebSearch → news 7 วันล่าสุด + analyst upgrades/downgrades + catalysts (ตามกฎ "ห้ามทำนายตลาด" ของ Paint)
 
-3 คนนี้ทำพร้อมกัน main Claude เป็น "orchestrator" (orchestrator คือ Claude หลักที่ส่งงานออก รวบผลกลับ คล้าย senior analyst ที่แจกงานให้ junior 3 คนแล้ว consolidate report) รับผลของทั้ง 3 มาร้อยเรียงเป็น brief ตาม SOP เดิม + ใส่เสียงของคุณ
+3 คนนี้ทำพร้อมกัน main Claude เป็น "orchestrator" (orchestrator คือ Claude หลักที่ส่งงานออกแล้วรอรวบผล คล้าย senior analyst ที่แจกงานให้ junior 3 คนแล้ว รับผลของทั้ง 3 มาร้อยเรียงเป็น brief ตาม SOP เดิม + ใส่เสียงของคุณ
 
 ปลาย Lesson 4 รัน `/brief AAPL` ในหน้าต่าง 2 อีกที, dispatch 3 sub-agent ขนาน, output แน่นกว่า v2 (แต่ละ section มี attention เต็ม) + เร็วกว่า (ขนาน).
 
@@ -461,7 +459,7 @@ ACTION: When the student responds:
 
    "อีกอย่างก่อนไป Step 4 ชื่อ agent 3 ตัวที่เพิ่ง paste (`fundamentals`, `earnings`, `sentiment`) คือชื่อ descriptive ที่ผมเลือกให้เพราะมันบอก function ตรงๆ แต่จริงๆ คุณตั้งชื่อ agent เป็นอะไรก็ได้ Claude resolve ตามค่า `name:` ใน frontmatter + ที่ skill body เรียก ขอให้ตรงกัน 2 ที่ก็พอ
 
-   ของผมเองที่ ClaudyOS (system ที่ผมใช้ทำคอนเทนต์ทุกวัน) ทีม agent ก็มีชื่อเป็นคน ไม่ใช่ชื่อ function เพราะรู้สึก natural กว่าตอน routing งาน Minnie ทำไอเดีย Reese ทำ research Rae เขียน Chris เป็น critic Vera ตรวจตัวเลข Newy triage email Nick ดู paper portfolio พอผมจะ delegate งาน ผมพิมพ์ 'ส่งให้ Reese ทำ research' แทนที่จะพิมพ์ 'spawn the research subagent' ฟีลเหมือนคุยกับทีม ไม่ใช่ spawn process ผมเริ่มจากโครงสร้างคล้ายๆ ที่คุณเพิ่ง paste นี่ก่อน แล้วค่อยๆ พัฒนาเป็นระบบของตัวเอง ตอนนี้ทีมผมเก็บไฟล์กันคนละโครงสร้างกับที่คอร์สนี้สอน แต่แนวคิดเดียวกัน ทุกคนมีไฟล์ของตัวเอง ทำงานเฉพาะของตัวเอง
+   ของผมเองที่ ClaudyOS (system ที่ผมใช้ทำคอนเทนต์ทุกวัน) ทีม agent ก็มีชื่อเป็นคน ไม่ใช่ชื่อ function เพราะรู้สึก natural กว่าตอน routing งาน Minnie ทำไอเดีย Reese ทำ research Rae เขียน Chris เป็น critic Vera ตรวจตัวเลข Newy triage email Nick ดู paper portfolio พอผมจะ delegate งาน ผมพิมพ์ 'ส่งให้ Reese ทำ research' แทนที่จะพิมพ์ 'spawn the research subagent' ฟีลเหมือนคุยกับทีม ไม่ใช่ spawn process ผมเริ่มจากโครงสร้างคล้ายๆ ที่คุณเพิ่ง paste นี่ก่อน แล้วค่อยๆ พัฒนาเป็นระบบของตัวเอง ตอนนี้ของผมก็คือผมตั้ง folder ชื่อ `Team/` แทนที่จะใช้ `.claude/agents/` แต่ concept เดียวกันเลยนะครับ ทุกคนมีไฟล์ของตัวเอง ทำงานเฉพาะของตัวเอง
 
    ของที่คุณเพิ่ง paste มี fundamentals/earnings/sentiment ก็ใช้งานได้จริงไม่ต้องเปลี่ยนตอนนี้ จำไว้ว่ามี option นี้ตอนคุณเริ่มสร้าง agent ใหม่ๆ หลังคอร์ส คุณจะตั้งชื่อ agent ของคุณเป็นชื่อคนใกล้ตัว (พี่ที่เก่งงบ น้องที่ตามข่าว) หรือชื่อ team บริษัทคุณก็ได้"
 
