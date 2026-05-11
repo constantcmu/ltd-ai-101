@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================
-# ลงทุนไดอารี่ · AI 101 Welcome Pack rebuild
+# ลงทุน Diary · AI 101 Welcome Pack rebuild
 # Renders welcome.html into ../Welcome.pdf using Playwright (Chromium).
 # Run from anywhere; uses script-relative paths.
 # =============================================================

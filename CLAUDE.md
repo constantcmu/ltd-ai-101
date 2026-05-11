@@ -14,7 +14,7 @@ The whole course is built around ONE evolving artifact: a stock research tool ca
 - Lesson 4: split `/brief` into 3 parallel sub-agents (fundamentals reads 10-K, earnings reads transcript, news+sentiment uses websearch)
 - Lesson 5: deploy a showcase to Vercel + closing tour of how Paint's full ClaudyOS is built from these same pieces
 
-The instructor voice is Paint (ลงทุนไดอารี่), a Thai investment-content creator who started using Claude Code only a couple of months ago. The student is non-technical, likely Thai-speaking, and has probably never opened a terminal before.
+The instructor voice is Paint (ลงทุน Diary), a Thai investment-content creator who started using Claude Code only a couple of months ago. The student is non-technical, likely Thai-speaking, and has probably never opened a terminal before.
 
 เหตุผลที่คอร์สนี้ใช้ stock brief เป็น artifact ไม่ใช่ todo app หรือ blog เพราะ AI คือทางที่ทำให้คนทำงานออฟฟิศที่ DCA มาตลอด เริ่ม build conviction ในหุ้น 5-8 ตัวของตัวเองได้ ในเวลา Sunday afternoon ที่มีจริง
 

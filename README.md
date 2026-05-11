@@ -10,17 +10,7 @@ status: in-progress
 
 **Claude Code จากเปิดใช้ครั้งแรก จนใช้เป็นเครื่องมือทำงานจริงได้ ในประมาณ 60-90 นาที**
 
-Version 0.3 | โดย Paint (ลงทุนไดอารี่)
-
----
-
-> ⚠️ **คำเตือน / Disclaimer**
->
-> คอร์สนี้เพื่อการศึกษาเท่านั้น **ไม่ใช่คำแนะนำการลงทุนหรือคำแนะนำทางการเงิน** หุ้นและ ticker ทั้งหมดเป็นตัวอย่างประกอบการสอน ไม่ใช่คำแนะนำซื้อ/ขาย/ถือหุ้นใดๆ การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาและตัดสินใจด้วยตนเอง
->
-> This course is for **educational purposes only**. Nothing here is investment or financial advice. All tickers and examples are illustrative only, not buy/sell/hold recommendations. See [DISCLAIMER.md](DISCLAIMER.md) for full details.
->
-> 📜 **License:** Free for personal educational use only. No selling, reselling, or commercial use. All rights reserved. See [LICENSE](LICENSE).
+Version 0.3 | โดย Paint (ลงทุน Diary)
 
 ---
 
@@ -168,7 +158,7 @@ ltd-ai-101/
 
 ## เกี่ยวกับคนสอน
 
-**Paint (ลงทุนไดอารี่)** เป็นคนทำคลิป YouTube สาย investing + AI เป็นภาษาไทย ผมเริ่มใช้ Claude Code เมื่อต้นปี 2026 ตอนที่ทำเองยังไม่ค่อยเป็น ผมไม่เข้าใจอะไรก็ถาม AI นี่แหละ เลยเป็นที่มาว่าก็ให้ AI มันสอนเราไปเลยสิ
+**Paint (ลงทุน Diary)** เป็นคนทำคลิป YouTube สาย investing + AI เป็นภาษาไทย ผมเริ่มใช้ Claude Code เมื่อต้นปี 2026 ตอนที่ทำเองยังไม่ค่อยเป็น ผมไม่เข้าใจอะไรก็ถาม AI นี่แหละ เลยเป็นที่มาว่าก็ให้ AI มันสอนเราไปเลยสิ
 
 ผมไม่ได้เก่ง coding. ผมแค่ใช้ Claude Code ทำงานทุกวันมาประมาณ 2 เดือน (ตอนเขียนคอร์สนี้) แล้วระบบที่ผมใช้ทำคอนเทนต์ทั้งช่อง ก็ประกอบจากของพื้นฐานที่อยู่ในคอร์สนี้แทบทั้งหมด ถ้าผมทำได้ คุณก็ทำได้
 
@@ -186,12 +176,3 @@ ltd-ai-101/
 
 **Version:** 0.3
 **Last Updated:** 2026-05-09
-
----
-
-## License & Disclaimer
-
-- **License:** Free for personal educational use only. No commercial use, no resale, no redistribution under another name. All rights reserved by Paint (ลงทุนไดอารี่). See [LICENSE](LICENSE).
-- **Disclaimer:** Educational content only — not investment or financial advice. See [DISCLAIMER.md](DISCLAIMER.md).
-
-Copyright © 2026 Paint (ลงทุนไดอารี่). All rights reserved.
